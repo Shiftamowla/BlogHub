@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<!DOCTYPE html>
+<html>
+<style>
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+<body>
+
+<h3>Using CSS to style an HTML Form</h3>
+
+<div>
+  <form action="{% url 'addpost' %} "  method="POST" enctype="multipart/form-data" >
+    {% csrf_token %}
+    
+    <label for="fname">BlogTitle</label>
+    <input type="text" id="fname" name="BlogTitle" placeholder="Your name..">
+
+    <label for="lname">BlogBody</label>
+    <input type="text" id="lname" name="BlogBody" placeholder="Your last name..">
+
+    <label for="country">Category</label>
+    <select id="country" name="country">
+      <option value="Technology">Technology</option>
+      <option value="Sports">Sports</option>
+      <option value="Entertainment">Entertainment</option>
+      <option value="Politics">Politics</option>
+      <option value="Business">Business</option>
+      <option value="Health">Health</option>
+      <option value="Education">Education</option>
+      <option value="Travel">Travel</option>
+      <option value="Food">Food</option>
+      <option value="Fashion">Fashion</option>
+    </select>
+
+    <label for="lname">created</label>
+    <input type="text" id="lname" name="created" placeholder="Your last name..">
+
+    <label for="lname">modified</label>
+    <input type="text" id="lname" name="modified" placeholder="Your last name..">
+    
+    <label for="lname">Blog_Pic</label>
+    <input type="file" id="lname" name="Blog_Pic" placeholder="Your last name..">
+
+    <input type="submit" value="Submit">
+  </form>
+</div>
+
+</body>
+</html>
+
+{% endblock body %}
+
